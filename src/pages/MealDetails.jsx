@@ -196,6 +196,23 @@ export default function MealDetails() {
       style={{ backgroundImage: `url(${meal.strMealThumb})` }}
     >
       <div className="absolute inset-0 bg-black/55" />
+      <button
+        onClick={toggleFavorite}
+        aria-pressed={isFavorite}
+        aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        className="absolute cursor-pointer top-3 right-3 md:top-4 md:right-4 z-20 inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/90 dark:bg-[#111318] border dark:border-white/10 text-pink-600 hover:scale-105 transition"
+      >
+        {isFavorite ? (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.001 20.727l-.001-.001-.013-.012a39.68 39.68 0 01-3.108-2.778 26.28 26.28 0 01-3.2-3.197C3.57 12.49 2.25 10.21 2.25 8.25 2.25 5.351 4.6 3 7.5 3c1.69 0 3.223.744 4.25 1.917A5.64 5.64 0 0116 3c2.9 0 5.25 2.351 5.25 5.25 0 1.96-1.32 4.24-3.429 6.489a26.28 26.28 0 01-3.2 3.197 39.68 39.68 0 01-3.108 2.778l-.012.011-.001.002-.4.273-.4-.273Z" />
+          </svg>
+        ) : (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.001 20.727l-.001-.001-.013-.012a39.68 39.68 0 01-3.108-2.778 26.28 26.28 0 01-3.2-3.197C3.57 12.49 2.25 10.21 2.25 8.25 2.25 5.351 4.6 3 7.5 3c1.69 0 3.223.744 4.25 1.917A5.64 5.64 0 0116 3c2.9 0 5.25 2.351 5.25 5.25 0 1.96-1.32 4.24-3.429 6.489a26.28 26.28 0 01-3.2 3.197 39.68 39.68 0 01-3.108 2.778l-.012.011-.001.002-.4.273-.4-.273Z" fill="currentColor" fillOpacity="0" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+        )}
+      </button>
       <div className="relative z-10 space-y-8 p-4 md:p-6">
         {/* Ingredients */}
         <section className="pb-20">
